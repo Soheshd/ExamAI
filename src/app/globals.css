@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), var(--font-geist-sans), sans-serif;
+  --font-heading: var(--font-outfit), var(--font-geist-sans), sans-serif;
+  
+  /* Color Palette */
+  --color-brand-yellow: #FFD700;
+  --color-brand-accent: #FFC107;
+  --color-bg-darkest: #0A0A0A;
+  --color-bg-dark: #121212;
+  --color-bg-card: rgba(20, 20, 20, 0.6);
+  --color-bg-card-hover: rgba(30, 30, 30, 0.8);
+  
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-yellow: rgba(255, 215, 0, 0.25);
+  --color-border-yellow-hover: rgba(255, 215, 0, 0.5);
+  
+  /* Text */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a3a3a3;
+  --color-text-muted: #737373;
+
+  /* Status */
+  --color-status-success: #10b981;
+  --color-status-warning: #f59e0b;
+  --color-status-danger: #ef4444;
+  --color-status-info: #3b82f6;
+
+  /* Shadows & Glows */
+  --shadow-yellow-glow: 0 0 25px rgba(255, 215, 0, 0.15);
+  --shadow-yellow-glow-lg: 0 0 40px rgba(255, 215, 0, 0.25);
+}
+
+/* Custom Base Resets and Utilities */
+:root {
+  background-color: #0A0A0A;
+  color: #ffffff;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0A0A0A;
+  color: #ffffff;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.02) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255, 193, 7, 0.03) 0%, transparent 45%);
+  background-attachment: fixed;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.3);
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.12);
+}
+
+.glow-yellow {
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.glow-yellow-lg {
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.25);
+  border-color: rgba(255, 215, 0, 0.45);
+}
+
+/* Animations */
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(255, 215, 0, 0.25); }
+  50% { border-color: rgba(255, 215, 0, 0.85); box-shadow: 0 0 30px rgba(255, 215, 0, 0.25); }
+}
+
+.pulse-yellow-border {
+  animation: pulse-border 2s infinite ease-in-out;
+}
+
+@keyframes pulse-danger {
+  0%, 100% { border-color: rgba(239, 68, 68, 0.2); }
+  50% { border-color: rgba(239, 68, 68, 0.9); box-shadow: 0 0 30px rgba(239, 68, 68, 0.3); }
+}
+
+.pulse-red-border {
+  animation: pulse-danger 1.5s infinite ease-in-out;
+}
+
+/* Proctor Status Dot styles */
+.proctor-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #10b981;
+  display: inline-block;
+  box-shadow: 0 0 10px #10b981;
+}
+.proctor-dot.warning {
+  background: #f59e0b;
+  box-shadow: 0 0 10px #f59e0b;
+}
+.proctor-dot.danger {
+  background: #ef4444;
+  box-shadow: 0 0 10px #ef4444;
+}
+
+/* Custom Table style */
+.responsive-table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.custom-table th {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 14px 20px;
+  font-weight: 600;
+  color: #a3a3a3;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.custom-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.95rem;
+}
+
+.custom-table tr:last-child td {
+  border-bottom: none;
+}
+
+.custom-table tr:hover td {
+  background: rgba(255, 255, 255, 0.01);
+}
